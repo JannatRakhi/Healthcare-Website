@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
 
 const Information = () => {
-    const { serviceid } = useParams();
-    const [users, setUsers] = useState([]);
+  const { serviceid } = useParams()
+  const [users, setUsers] = useState([])
+  console.log(users)
 
-    useEffect(() => {
-        const url = `https://fardin-hasan.github.io/API-for-assignment/ourServices.JSON`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+  useEffect(() => {
+    const url = `https://fardin-hasan.github.io/API-for-assignment/ourServices.JSON`
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+  }, [])
 
+  return (
+    <div>
+      <h1 className="text-center"> Hey : {serviceid}</h1>
+    </div>
+  )
+}
 
-
-
-
-    return (
-        <div>
-            <h1 className='text-center'> Hey : {serviceid}</h1>
-
-
-
-        </div>
-    );
-};
-
-export default Information;
+export default Information
